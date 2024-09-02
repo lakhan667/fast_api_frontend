@@ -17,7 +17,7 @@ const UserManagement = () => {
   const handleAddUser = async (user) => {
     try {
       // setMessage("Hello");
-      await dispatch(addUser(user));
+      dispatch(addUser(user));
       setTimeout(() => { setMessage("") }, 3000);
       setMessage("User added successfully!");
       setTimeout(() => { setMessage("") }, 3000);
@@ -28,7 +28,7 @@ const UserManagement = () => {
  
   const handleUpdateUser = async (user) => {
     try {
-      await dispatch(updateUser(user)).unwrap();
+      dispatch(updateUser(user));
       setMessage("User updated successfully!");
       setTimeout(() => { setMessage("") }, 3000);
     } catch (err) {
@@ -38,7 +38,7 @@ const UserManagement = () => {
  
   const handleDeleteUser = async (user) => {
     try {
-await dispatch(deleteUser(user.id)).unwrap();
+      dispatch(deleteUser(user.id));
       setMessage("User deleted successfully!");
       setTimeout(() => { setMessage("") }, 3000);
     } catch (err) {
@@ -46,11 +46,11 @@ await dispatch(deleteUser(user.id)).unwrap();
     }
   };
  
-  if (error) return <div className="alert alert-danger">{error}</div>;
- 
+  
   return (
     <div>
       
+      {/* { error &&  <div className="alert alert-danger">{error}</div>} */}
       {message && <div className="alert alert-success">{message}</div>}
       <UserForm addUser={handleAddUser} updateUser={handleUpdateUser} editingUser={editingUser} setEditingUser={setEditingUser} />
       <UserList users={users} deleteUser={handleDeleteUser} editUser={(user) => setEditingUser(user)} />
