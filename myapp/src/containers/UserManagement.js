@@ -47,11 +47,11 @@ const UserManagement = () => {
   };
  
   
+  // {message && <div className="alert alert-success">{message}</div>}
   return (
     <div>
       
       {/* { error &&  <div className="alert alert-danger">{error}</div>} */}
-      {message && <div className="alert alert-success">{message}</div>}
       <UserForm addUser={handleAddUser} updateUser={handleUpdateUser} editingUser={editingUser} setEditingUser={setEditingUser} />
       <UserList users={users} deleteUser={handleDeleteUser} editUser={(user) => setEditingUser(user)} />
     </div>
