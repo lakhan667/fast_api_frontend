@@ -8,25 +8,16 @@ function UserList({ editUser }) {
  
   useEffect(() => {
     dispatch(fetchUsers());
-  }, [dispatch]);
+  }, []);
  
   const handleDelete = (user) => {
-dispatch(deleteUser(user.id));
+    dispatch(deleteUser(user.id));
   };
  
-  if (loading) {
-    return (
-      <div className="text-center mt-6">
-        <p>Loading...</p>
-      </div>
-    );
-  }
- 
-  if (error) {
-    return <p className="text-danger">Error: {error}</p>;
-  }
  
   return (
+    <>
+      {loading && <h3 className="text-primary">Loading....</h3>}
     <table className="table table-striped mt-4">
       <thead>
         <tr>
@@ -40,12 +31,12 @@ dispatch(deleteUser(user.id));
       <tbody>
         {users.map((user) => (
             <tr key={user.id}>
-                <td>{user.id}</td>
-                <td>{user.Firstname}</td>
-                <td>{user.surname}</td>
-                <td>{user.mobile}</td>
-                <td>
-                <button
+              <td>{user.id}</td>
+              <td>{user.Firstname}</td>
+              <td>{user.surname}</td>
+              <td>{user.mobile}</td>
+              <td>
+              <button
                     className="btn btn-warning m-2"
                     onClick={() => editUser(user)}>
                     Edit
@@ -60,6 +51,7 @@ dispatch(deleteUser(user.id));
         ))}
       </tbody>
     </table>
+        </>
   );
 }
  

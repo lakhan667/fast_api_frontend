@@ -18,7 +18,7 @@ function UserForm({ editingUser, setEditingUser }) {
   }, [editingUser]);
  
   const handleChange = (e) => {
-setUser({ ...user, [e.target.name]: e.target.value });
+        setUser({ ...user, [e.target.name]: e.target.value });
   };
  
   const handleSubmit = async (e) => {

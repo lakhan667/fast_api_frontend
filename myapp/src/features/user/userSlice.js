@@ -59,7 +59,7 @@ const userSlice = createSlice({
         })
         .addCase(deleteUser.fulfilled, (state, action) => {
           state.loading = false;
-  state.users = state.users.filter(user => user.id !== action.payload);
+          state.users = state.users.filter(user => user.id !== action.payload);
         })
         .addCase(deleteUser.rejected, (state, action) => {
           state.loading = false;
@@ -68,4 +68,4 @@ const userSlice = createSlice({
     },
   });
    
-  export default userSlice.reducer;
+export default userSlice.reducer;
